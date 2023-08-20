@@ -1,8 +1,3 @@
----
-tags: c, c++, accelerated computing, cuda, nvidia
-title: An Even Easier Introduction to CUDA
----
-
 Nvidia Tutorial: An Even Easier Introduction to CUDA
 ===
 
