@@ -276,12 +276,12 @@ int numBlocks = (N + blockSize - 1) / blockSize;
 add<<<numBlocks, blockSize>>>(N, x, y);
 ```
 
-![](https://hackmd.io/_uploads/S1G1sjohn.png)
+![](https://cdn-images-1.medium.com/v2/resize:fit:926/0*f7T7scK7UX0-H4Y1)
 
 - I also need to update the kernel code to take into account the entire grid of thread blocks. 
 - `gridDim.x`, which contains the number of blocks in the grid.
 - `blockIdx.x`, which contains the index of the current thread block in the grid. 
-- Figure 1 illustrates the the approach to indexing into an array (one-dimensional) in CUDA using `blockDim.x`, `gridDim.`x, and `threadIdx.x`. 
+- Figure 1 illustrates the the approach to indexing into an array (one-dimensional) in CUDA using `blockDim.x`, `gridDim.x`, and `threadIdx.x`. 
 - The idea is that each thread gets its index by **computing the offset** to the beginning of its block (the block index times the block size: `blockIdx.x * blockDim.x`) and adding the thread’s index within the block (`threadIdx.x`). The code **`blockIdx.x * blockDim.x + threadIdx.x`** is idiomatic CUDA.
 
 ```cpp=
